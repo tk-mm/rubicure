@@ -26,14 +26,33 @@ stream_client.user do |status|
   next unless status.is_a? Twitter::Tweet
   next if status.text.start_with? "RT"
 
-  if status.text =~ /test/
+  if status.text =~ /test01/
     option = {"in_reply_to_status_id" => status.id.to_s }
-    tweet = Cure.peace.transform!
-    client.update tweet, option
+    tweet = []
+    tweet = Cure.peace.transform!.map(&:to_s)
+    tweet.each do |v|
+      client.update v, option
+    end
   end
+  if status.text =~ /test02/
+    option = {"in_reply_to_status_id" => status.id.to_s }
+    tweet = []
+    tweet = Cure.peace.transform!.map(&:to_s)
+    tweet.each do |v|
+      client.update v, option
+    end
+  end                     
+  if status.text =~ /test03/
+    option = {"in_reply_to_status_id" => status.id.to_s }
+    tweet = []
+    tweet = Cure.peace.transform!.map(&:to_s)
+    tweet.each do |v|
+      client.update v, option
+    end
+  end                     
   if status.text =~ /name/
     option = {"in_reply_to_status_id" => status.id.to_s }
-    tweet = Cure.peace.name
+    tweet = "@#{status.user.screen_name} #{Cure.peace.name}"
     client.update tweet, option
   end                     
 end
