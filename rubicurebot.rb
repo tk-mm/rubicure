@@ -26,7 +26,7 @@ stream_client.user do |status|
   next unless status.is_a? Twitter::Tweet
   next if status.text.start_with? "RT"
 
-  if status.text =~ /ぷりきゅあがんばえ〜/
+  if status.text =~ /test/
     option = {"in_reply_to_status_id" => status.id.to_s }
     tweet = Cure.peace.transform!
     client.update tweet, option
