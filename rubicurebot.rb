@@ -31,4 +31,9 @@ stream_client.user do |status|
     tweet = Cure.peace.transform!
     client.update tweet, option
   end
+  if status.text =~ /name/
+    option = {"in_reply_to_status_id" => status.id.to_s }
+    tweet = Cure.peace.name
+    client.update tweet, option
+  end                     
 end
