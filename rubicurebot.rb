@@ -34,11 +34,15 @@ stream_client.user do |status|
     str = str.split("\n").map(&:to_s)
     str.each do |v|
       client.update "@#{status.user.screen_name} #{v}", option
+      sleep(0.5)
     end
   end
   if status.text =~ /^name$/
     option = {"in_reply_to_status_id" => status.id.to_s }
     tweet = "@#{status.user.screen_name} #{Cure.peace.name}"
-    client.update tweet, option
+    2.times do
+      client.update tweet, option
+      sleep(0.5) 
+    end
   end                     
 end
