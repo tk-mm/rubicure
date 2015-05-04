@@ -34,7 +34,18 @@ stream_client.user do |status|
     str = str.split("\n").map(&:to_s)
     str.each do |v|
       client.update "@#{status.user.screen_name} #{v}", option
-      sleep(0.5)
+      sleep 1
+    end
+  end
+  if status.text =~ /^ぷいきゅあー！$/
+    option = {"in_reply_to_status_id" => status.id.to_s }
+    tweet = []
+    tweet = Cure.peace.transform!
+    str = tweet[:transform_message]
+    str = str.split("\n").map(&:to_s)
+    str.each do |v|
+      client.update "@#{status.user.screen_name} #{v}", option
+      sleep 1
     end
   end
   if status.text =~ /^name$/
@@ -42,7 +53,7 @@ stream_client.user do |status|
     tweet = "@#{status.user.screen_name} #{Cure.peace.name}"
     2.times do
       client.update tweet, option
-      sleep(0.5) 
+      sleep 1 
     end
   end                     
 end
