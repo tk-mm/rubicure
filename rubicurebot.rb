@@ -3,10 +3,10 @@ require 'rubygems'
 require 'twitter'
 require 'rubicure'
 
-C_KEY = '5idyIHnh9qaC8soaRH5TItnqZ'
-C_SECRET = 'pBbcXOPxdOTMfMRmsEamBV0zzcHzDOAMeBUoFgBoyW9U46I9EF'
-A_TOKEN = '2908803210-P5xyJJCw3P7O45BWyQXtpxFMbSrOr4FPSvQbsfU'
-A_T_SECRET = 'ixzMIrbSpnoSpkJOdycMVtIllWAEVCf80lEDZMZRdMbF1'
+C_KEY = 'srN3aLoagd2Rv2zwUswYLz3SY'
+C_SECRET = 'ehhD3ZRAzUM4oUh6O5DRw5iXqvtLsBAM6qrsGcjz7JxubB6BMX'
+A_TOKEN = '1015317498-CXXUoXBdTRaf42sW2XNd6UeCbcTbBrKV0k0URQf'
+A_T_SECRET = 'YHBiKXjB3jWEnC7ziZmXG50YrpOl4fez2OlFMEvCSnrKI'
 
 client = Twitter::REST::Client.new do |config|
   config.consumer_key = C_KEY
@@ -26,7 +26,7 @@ stream_client.user do |status|
   next unless status.is_a? Twitter::Tweet
   next if status.text.start_with? "RT"
 
-  if status.text =~ /^ぷりきゅあ$/
+  if status.text =~ /^ぷいきゅあー！がんばえー！$/
     option = {"in_reply_to_status_id" => status.id.to_s }
     tweet = []
     tweet = Cure.peace.transform!
