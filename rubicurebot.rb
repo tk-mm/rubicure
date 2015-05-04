@@ -3,10 +3,10 @@ require 'rubygems'
 require 'twitter'
 require 'rubicure'
 
-C_KEY = 'srN3aLoagd2Rv2zwUswYLz3SY'
-C_SECRET = 'ehhD3ZRAzUM4oUh6O5DRw5iXqvtLsBAM6qrsGcjz7JxubB6BMX'
-A_TOKEN = '1015317498-CXXUoXBdTRaf42sW2XNd6UeCbcTbBrKV0k0URQf'
-A_T_SECRET = 'YHBiKXjB3jWEnC7ziZmXG50YrpOl4fez2OlFMEvCSnrKI'
+C_KEY = ''
+C_SECRET = ''
+A_TOKEN = ''
+A_T_SECRET = ''
 
 client = Twitter::REST::Client.new do |config|
   config.consumer_key = C_KEY
