@@ -26,7 +26,7 @@ stream_client.user do |status|
   next unless status.is_a? Twitter::Tweet
   next if status.text.start_with? "RT"
 
-  if status.text =~ /^ぷりきゅあ/
+  if status.text =~ /^ぷりきゅあ$/
     option = {"in_reply_to_status_id" => status.id.to_s }
     tweet = []
     tweet = Cure.peace.transform!
@@ -36,7 +36,7 @@ stream_client.user do |status|
       client.update "@#{status.user.screen_name} #{v}", option
     end
   end
-  if status.text =~ /^name/
+  if status.text =~ /^name$/
     option = {"in_reply_to_status_id" => status.id.to_s }
     tweet = "@#{status.user.screen_name} #{Cure.peace.name}"
     client.update tweet, option
